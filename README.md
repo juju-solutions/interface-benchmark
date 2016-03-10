@@ -13,7 +13,7 @@ benchmarks.
 
 This interface layer will set the following states, as appropriate:
 
-  * `{relation_name}.related` The relation is established, but the charm may not
+  * `{relation_name}.joined` The relation is established, but the charm may not
     have provided any benchmark information.
 
   * `{relation_name}.registered` The charm has registered a list of benchmarks.
@@ -42,14 +42,14 @@ A charm providing this interface is providing benchmarks to the Benchmark GUI.
 
 This interface layer will set the following states, as appropriate:
 
-  * `{relation_name}.related` The Benchmark GUI has been related.  The charm
+  * `{relation_name}.joined` The Benchmark GUI has been related.  The charm
     should call the `register(benchmarks)` method to register a list of
     benchmarks with the GUI.
 
 Example:
 
 ```python
-@when('benchmark.related')
+@when('benchmark.joined')
 def register_benchmarks(benchmark):
     benchmark.register('pagerank', 'trianglecount', 'sql')
 ```
