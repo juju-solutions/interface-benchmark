@@ -21,12 +21,12 @@ class BenchmarkProvides(RelationBase):
     @hook('{provides:benchmark}-relation-joined')
     def joined(self):
         conv = self.conversation()
-        conv.set_state('{relation_name}.related')
+        conv.set_state('{relation_name}.joined')
 
     @hook('{provides:benchmark}-relation-departed')
     def departed(self):
         conv = self.conversation()
-        conv.remove_state('{relation_name}.related')
+        conv.remove_state('{relation_name}.joined')
 
     def register(self, *benchmarks):
         conv = self.conversation()
