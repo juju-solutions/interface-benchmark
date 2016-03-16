@@ -29,5 +29,13 @@ class BenchmarkProvides(RelationBase):
         conv.remove_state('{relation_name}.joined')
 
     def register(self, *benchmarks):
+        """
+        Register one or more benchmarks.
+
+        :param benchmarks: One or more benchmark names, or a list
+            containing one or more benchmark names.
+        """
+        if len(benchmarks) == 1 and isinstance(benchmarks[0], (list, tuple)):
+            benchmarks = benchmarks[0]
         conv = self.conversation()
         conv.set_remote('benchmarks', ','.join(benchmarks))

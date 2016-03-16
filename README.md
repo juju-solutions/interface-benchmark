@@ -43,8 +43,10 @@ A charm providing this interface is providing benchmarks to the Benchmark GUI.
 This interface layer will set the following states, as appropriate:
 
   * `{relation_name}.joined` The Benchmark GUI has been related.  The charm
-    should call the `register(benchmarks)` method to register a list of
-    benchmarks with the GUI.
+    should call the `register(*benchmarks)` method to register a list of
+    benchmarks with the GUI (note: this can either be passed one or more
+    strings, e.g., `register('foo', 'bar')` or it can be passed a list,
+    e.g., `register(['foo', 'bar'])`).
 
 Example:
 
